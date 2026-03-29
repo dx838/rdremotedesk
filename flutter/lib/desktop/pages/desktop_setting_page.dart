@@ -2604,7 +2604,7 @@ class _WaylandCardState extends State<WaylandCard> {
   //   /org/freedesktop/impl/portal/PermissionStore org.freedesktop.impl.portal.PermissionStore \
   //   DeletePermission sss "gnome" "shortcuts-inhibitor" "<desktop-id>"
   // On a native install this is typically "rustdesk.desktop"; on Flatpak it is usually
-  // the exported desktop ID derived from the Flatpak app-id (e.g. "com.rustdesk.RustDesk.desktop").
+  // the exported desktop ID derived from the Flatpak app-id (e.g. "com.rdremotedesk.RDRemoteDesk.desktop").
   //
   // We may add it back in the future if needed.
   final showResetInhibitorPermission = false;
