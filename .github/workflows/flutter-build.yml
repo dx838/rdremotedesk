@@ -1582,6 +1582,17 @@ jobs:
           prefix-key: rustdesk-lib-cache-android # TODO: drop '-android' part after caches are invalidated
           key: ${{ matrix.job.target }}
 
+      - name: Sync Cargo.lock (one-off)
+        shell: bash
+        run: |
+          cargo metadata --format-version 1 > /dev/null
+          git diff -- Cargo.lock
+      - name: Upload synced lock
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: cargo-lock
+          path: Cargo.lock
+
       - name: Build rustdesk lib
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
